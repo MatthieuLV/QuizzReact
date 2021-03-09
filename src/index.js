@@ -2,13 +2,16 @@ import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 
 import "./styles.css";
-import Quiz from "./Components/Quiz";
+import Ajout from "./Components/Ajout";
+import User from "./Components/User";
 
 function App() {
   return (
 
     <Fragment>
-        <Quiz />
+      
+        <User />
+        <Ajout />
       
     </Fragment> 
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Answer from "./Answer";
+import axios from 'axios';
 
 class Quiz extends Component{
 
@@ -19,6 +20,27 @@ class Quiz extends Component{
         })
     }
 
+    save = () =>{
+
+        const user = {
+            id: 2,
+            name: this.props.value,
+            score: 1
+        };
+    
+        axios({
+            method: 'post',
+            url: 'http://localhost:3001/user',
+            data: user
+        })
+        .then(function (reponse) {
+            console.log(reponse);
+        })
+        .catch(function (erreur) {
+            console.log(erreur);
+        });
+    }
+
   render() {
     return(
 
@@ -28,8 +50,11 @@ class Quiz extends Component{
                     <h2> { ques.question }</h2> 
                     <Answer id={ ques.id } reponse={ ques.reponse } question={ ques.choix } />
                 </div>
+                
             )}
+            <button onClick={() => this.save()}>Valider</button>
         </div>
+        
     )
   }
 }

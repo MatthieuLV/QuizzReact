@@ -1,0 +1,48 @@
+{
+  "question": [
+    {
+      "id": 1,
+      "question": "question1",
+      "choix": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "reponse": "1"
+    },
+    {
+      "id": 2,
+      "question": "question2",
+      "choix": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "reponse": "2"
+    },
+    {
+      "id": "3dcb5f4-e8f7-345b-d505-b46cc665f4d4",
+      "question": "question3",
+      "choix": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "reponse": "2"
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "nom": "Lucas",
+      "score": "1"
+    },
+    {
+      "id": 2,
+      "score": 1
+    }
+  ]
+}
