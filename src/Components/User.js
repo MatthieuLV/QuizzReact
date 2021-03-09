@@ -17,8 +17,8 @@ class User extends Component{
   render() {
     return(
 
-        <div>
-            <input value={this.state.value} onChange={this.handleChange}></input>
+        <div class="card">
+            <input placeholder="Veuillez saisir un pseudo pour participer au quizz" class="pseudo" value={this.state.value} onChange={this.handleChange}></input>
             <Quiz value={this.state.value} />
         </div>
     )

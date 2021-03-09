@@ -10,28 +10,19 @@ class Answer extends Component {
     }
   }
 
-  
   onAnswer (data) {
-    
-    
     this.setState({
       Clickcheck:false
     })
   };
 
-  
-  
   render() {
     return (
-     
      <div>
-
         { this.state.Clickcheck ? this.props.question.map(ans => {
-          return <button onClick={() => this.onAnswer(ans)}> {ans}</button>;
-        }) : <button > {this.props.reponse}</button> }
-
+          return <button onClick={() => this.onAnswer(ans)}>{ans}</button>;
+        }) : <button class="response">La bonne réponse était {this.props.reponse}</button> }
       </div>
-      
     );
   }
 }

@@ -21,13 +21,11 @@ class Quiz extends Component{
     }
 
     save = () =>{
-
         const user = {
             id: 2,
             name: this.props.value,
             score: 1
         };
-    
         axios({
             method: 'post',
             url: 'http://localhost:3001/user',
@@ -43,18 +41,16 @@ class Quiz extends Component{
 
   render() {
     return(
-
         <div>
+            <h1>Répondre au quizz</h1>
             { this.state.question.map(ques =>
                 <div key={ ques.id } className="card"> 
                     <h2> { ques.question }</h2> 
                     <Answer id={ ques.id } reponse={ ques.reponse } question={ ques.choix } />
                 </div>
-                
             )}
-            <button onClick={() => this.save()}>Valider</button>
+            <button class="submit-quiz" onClick={() => this.save()}>Valider</button>
         </div>
-        
     )
   }
 }

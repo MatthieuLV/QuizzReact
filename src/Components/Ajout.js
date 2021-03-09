@@ -4,9 +4,7 @@ import uuid from 'react-uuid'
 
 class Ajout extends Component {
 
-
   valid = () =>{
-
     const question = {
         id: uuid(),
         question: document.getElementById("value").value,
@@ -18,7 +16,6 @@ class Ajout extends Component {
           ],
           reponse: document.getElementById("reponse").value
     };
-
     axios({
         method: 'post',
         url: 'http://localhost:3001/question',
@@ -35,31 +32,16 @@ class Ajout extends Component {
   render() {
     
     return (
-     
-     <div>
-
-        <label>Nom de la question</label>
-        <input id="value"></input><br/>
-
-        <label>Choix 1</label>
-        <input id="choix1"></input><br/>
-
-        <label>Choix 2</label>
-        <input id="choix2"></input><br/>
-
-        <label>Choix 3</label>
-        <input id="choix3"></input><br/>
-
-        <label>Choix 4</label>
-        <input id="choix4"></input><br/>
-
-        <label>Reponse</label>
-        <input id="reponse"></input><br/>
-
-        <button onClick={() => this.valid()}>Valider</button>
-
-      </div>
-      
+        <div class="card">
+            <h1>Ajouter une question</h1>
+            <input placeholder="Intitulé de la question" class="new-question" id="value"></input>
+            <input placeholder="Réponse 1" class="option" id="choix1"></input>
+            <input placeholder="Réponse 2" class="option" id="choix2"></input>
+            <input placeholder="Réponse 3" class="option" id="choix3"></input>
+            <input placeholder="Réponse 4" class="option" id="choix4"></input>
+            <input placeholder="Bonne réponse" class="option" id="reponse"></input>
+            <button class="submit-quiz" onClick={() => this.valid()}>Valider</button>
+        </div>
     );
   }
 }
