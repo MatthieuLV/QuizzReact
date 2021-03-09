@@ -10,10 +10,19 @@ class Answer extends Component {
     }
   }
 
+  score = 0;
   onAnswer (data) {
+    if(this.props.score != undefined){
+      this.score = this.props.score;
+    }
+    
+    if(this.props.reponse == data){
+      this.score = this.score + 1;
+    }
     this.setState({
       Clickcheck:false
     })
+    this.props.onScore(this.score);
   };
 
   render() {

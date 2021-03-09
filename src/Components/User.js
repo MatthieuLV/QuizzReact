@@ -19,7 +19,7 @@ class User extends Component{
 
         <div class="card">
             <input placeholder="Veuillez saisir un pseudo pour participer au quizz" class="pseudo" value={this.state.value} onChange={this.handleChange}></input>
-            <Quiz value={this.state.value} />
+            <Quiz id={ this.props.id } value={this.state.value} />
         </div>
     )
   }

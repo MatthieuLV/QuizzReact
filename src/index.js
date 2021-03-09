@@ -1,19 +1,39 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
-
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import "./styles.css";
 import Ajout from "./Components/Ajout";
-import User from "./Components/User";
+import Home from "./Components/Home";
+import Resultat from "./Components/Resultat";
 
 function App() {
+
   return (
 
-    <Fragment>
-      
-        <User />
-        <Ajout />
-      
-    </Fragment> 
+    <Router>
+
+        <ul className="navbar-nav mr-auto">
+            <li><Link to={'/'} className="nav-link"> Home </Link></li>
+            <li><Link to={'/ajout'} className="nav-link">Ajout</Link></li>
+            <li><Link to={'/resultat'} className="nav-link">Resultat</Link></li>
+          </ul>
+
+        <Switch>
+              <Route exact path='/'>
+                <Home />
+              </Route>
+
+              <Route exact path='/ajout'>
+                <Ajout />
+              </Route>
+
+              <Route exact path='/resultat'>
+                <Resultat />
+              </Route>
+          </Switch>
+</Router>
+
+  
 
   )
 }

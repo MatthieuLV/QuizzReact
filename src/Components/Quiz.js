@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Answer from "./Answer";
 import axios from 'axios';
+import uuid from 'react-uuid';
 
 class Quiz extends Component{
 
@@ -12,19 +13,23 @@ class Quiz extends Component{
     } 
  
     async componentDidMount(){
-        const reponse = await fetch('http://localhost:3001/question');
+        const reponse = await fetch('http://localhost:3001/quiz/'+this.props.id);
         const data = await reponse.json();
         this.setState({
-            question: data
+            question: data.question
             
         })
     }
 
+    handleScore = (scoreValue) => {
+        this.setState({score: scoreValue}); 
+    }
+
     save = () =>{
         const user = {
-            id: 2,
+            id: uuid(),
             name: this.props.value,
-            score: 1
+            score: this.state.score
         };
         axios({
             method: 'post',
@@ -46,10 +51,11 @@ class Quiz extends Component{
             { this.state.question.map(ques =>
                 <div key={ ques.id } className="card"> 
                     <h2> { ques.question }</h2> 
-                    <Answer id={ ques.id } reponse={ ques.reponse } question={ ques.choix } />
+                    <Answer id={ ques.id } reponse={ ques.reponse } question={ ques.choix } onScore={this.handleScore} score={this.state.score} />
                 </div>
             )}
             <button class="submit-quiz" onClick={() => this.save()}>Valider</button>
+
         </div>
     )
   }
